@@ -60,10 +60,7 @@ function Game () {
             return false
         }
 
-        const [begin , setBegin] = useState(false)
-        const starter = () =>{
-            setBegin(true)
-        }
+
          return (
              <div id="game">
                  <Router>
