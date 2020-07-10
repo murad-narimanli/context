@@ -81,7 +81,6 @@ function Game () {
                              );
                          }
                      } />
-git
                      <Route path="/play" exact render={
                          () => {
                              return(
