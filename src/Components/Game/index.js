@@ -14,13 +14,13 @@ function Game () {
             board[row][col] = turn;
             let w = checkForWin()
             if (!w){
-                setWins(true)
                 setStart(true)
+                setWins(false)
             }
             else if (w){
                 setWinner ( "'" + w + "'" + '- Wins 😁');
-                setStart(true)
-
+                setStart( true)
+                setWins(true)
             }
         }
 
@@ -75,8 +75,8 @@ function Game () {
                          () => {
                              return(
                                  <div>
-                                     <Link to="/play" className="again">Start game</Link>
-                                     <h4 className="winner">NOTE : "X" starts first</h4>
+                                     <Link to="/play" onClick={() => setWins(false)} className="again">Start game</Link>
+                                     <h4 className="winner">NOTE : {turn} starts first</h4>
                                  </div>
                              );
                          }
