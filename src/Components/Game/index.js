@@ -14,13 +14,13 @@ function Game () {
             board[row][col] = turn;
             let w = checkForWin()
             if (!w){
+                setWins(true)
                 setStart(true)
-                setWins(false)
             }
             else if (w){
                 setWinner ( "'" + w + "'" + '- Wins 😁');
-                setStart( true)
-                setWins(true)
+                setStart(true)
+
             }
         }
 
@@ -50,7 +50,6 @@ function Game () {
             if (sag0=== sag1 && sag1=== sag2 && sag0){
                 return sag0
             }
-
             const sol0 = board[0][2]
             const sol1 = board[1][1]
             const sol2 = board[2][0]
@@ -72,12 +71,13 @@ function Game () {
                          () => {
                              return(
                                  <div>
-                                     <Link to="/play" onClick={() => setWins(false)} className="again">Start game</Link>
+                                     <Link to="/play" className="again">Start game</Link>
                                      <h4 className="winner">NOTE : {turn} starts first</h4>
                                  </div>
                              );
                          }
                      } />
+
                      <Route path="/play" exact render={
                          () => {
                              return(
@@ -102,7 +102,7 @@ function Game () {
                                         <Box row={2} col={1} currentState={turn} changeTurn={changeTurn} />
                                         <Box row={2} col={2} currentState={turn} changeTurn={changeTurn} />
                                     </div>
-                                    { start ? <Link to='/' className="again"> Play again ☘</Link> : '' }
+                                    { start ? <a href="http://tictactoe11.netlify.app" className="again"> Play again ☘</a> : '' }
                                 </div>
                              );
                          }
